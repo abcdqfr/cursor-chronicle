@@ -1,0 +1,28 @@
+{
+    "name": "cursor-chronicle",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Bridge between cursor-chat-browser and local-history",
+    "scripts": {
+        "dev": "pnpm --filter bridge dev",
+        "build": "pnpm --filter bridge build",
+        "test": "pnpm --filter bridge test"
+    },
+    "keywords": [
+        "cursor",
+        "chat",
+        "history",
+        "bridge"
+    ],
+    "author": "",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@types/node": "^20.11.0",
+        "typescript": "^5.3.3"
+    },
+    "pnpm": {
+        "peerDependencyRules": {
+            "allowAny": true
+        }
+    }
+}

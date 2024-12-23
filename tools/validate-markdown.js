@@ -1,0 +1,1 @@
+../.master/tools/linting/validate-markdown.js

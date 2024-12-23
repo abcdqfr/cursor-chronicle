@@ -1,0 +1,107 @@
+{
+  "folders": [
+    {
+      "name": "📚 Current Library",
+      "path": "."
+    },
+    {
+      "name": "🛠️ Shared Tools",
+      "path": "~/cursor/tools"
+    },
+    {
+      "name": "📚 Resources",
+      "path": "~/cursor/resources"
+    }
+  ],
+  "settings": {
+    // Project isolation
+    "files.exclude": {
+      "**/cursor/projects/!(current-project)": true,
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/lib": true,
+      "**/esm": true
+    },
+    "search.exclude": {
+      "**/cursor/projects/!(current-project)": true,
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/lib": true,
+      "**/esm": true
+    },
+
+    // Resource handling
+    "files.watcherExclude": {
+      "**/cursor/projects/**": true,
+      "!**/cursor/projects/current-project/**": false
+    },
+
+    // Development
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+
+    // Testing
+    "jest.autoRun": {
+      "watch": false,
+      "onSave": "test-file"
+    },
+    "jest.testExplorer.showInlineError": true,
+
+    // Linting and formatting
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // Git integration
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+
+    // Library-specific
+    "npm.packageManager": "npm",
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.preferences.quoteStyle": "single"
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "orta.vscode-jest",
+      "davidanson.vscode-markdownlint",
+      "cursor.cursor-linting-tools",
+      "ms-vscode.vscode-typescript-next",
+      "christian-kohler.path-intellisense",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug Library Tests",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/jest",
+        "args": ["--runInBand", "--watchAll=false"],
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      },
+      {
+        "name": "Debug Example",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/examples/index.ts",
+        "preLaunchTask": "npm: build",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      }
+    ]
+  }
+}

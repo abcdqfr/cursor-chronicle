@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": true
+    }
+  },
+  "markdownlint.config": {
+    "extends": "~/.config/cursor/linting/markdownlint.json"
+  },
+  "markdownlint.run": "onType",
+  "markdownlint.ignore": ["node_modules", ".git", "dist", "build"],
+  "files.associations": {
+    "*.md": "markdown"
+  }
+}

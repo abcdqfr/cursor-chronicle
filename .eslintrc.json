@@ -1,0 +1,41 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "@typescript-eslint/naming-convention": ["warn", {
+            "selector": "default",
+            "format": ["camelCase", "PascalCase"],
+            "filter": {
+                "regex": "^(ViewColumn|ExtensionContext|Uri|One|Two|Three)$",
+                "match": false
+            }
+        }],
+        "@typescript-eslint/semi": "warn",
+        "@typescript-eslint/no-explicit-any": ["warn", {
+            "ignoreRestArgs": true,
+            "fixToUnknown": false
+        }],
+        "@typescript-eslint/no-non-null-assertion": "warn",
+        "curly": "warn",
+        "eqeqeq": "warn",
+        "no-throw-literal": "warn",
+        "semi": "off"
+    },
+    "ignorePatterns": [
+        "out",
+        "dist",
+        "**/*.d.ts"
+    ]
+} 

@@ -1,0 +1,36 @@
+// Increase timeout for all tests in development
+jest.setTimeout(10000);
+
+// Add custom matchers
+expect.extend({
+  toBeWithinRange(received, floor, ceiling) {
+    const pass = received >= floor && received <= ceiling;
+    if (pass) {
+      return {
+        message: () =>
+          `expected ${received} not to be within range ${floor} - ${ceiling}`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () =>
+          `expected ${received} to be within range ${floor} - ${ceiling}`,
+        pass: false,
+      };
+    }
+  },
+});
+
+// Global test setup
+beforeAll(() => {
+  // Setup test environment variables
+  process.env.NODE_ENV = "development";
+  process.env.LOG_LEVEL = "debug";
+});
+
+// Global test teardown
+afterAll(() => {
+  // Cleanup test environment
+  jest.clearAllMocks();
+  jest.resetModules();
+});

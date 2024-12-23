@@ -1,0 +1,100 @@
+{
+  "folders": [
+    {
+      "name": "📦 Current Extension",
+      "path": "."
+    },
+    {
+      "name": "🛠️ Shared Tools",
+      "path": "~/cursor/tools"
+    },
+    {
+      "name": "📚 Resources",
+      "path": "~/cursor/resources"
+    }
+  ],
+  "settings": {
+    // Project isolation
+    "files.exclude": {
+      "**/cursor/projects/!(current-project)": true,
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    "search.exclude": {
+      "**/cursor/projects/!(current-project)": true,
+      "**/node_modules": true,
+      "**/dist": true
+    },
+    
+    // Resource handling
+    "files.watcherExclude": {
+      "**/cursor/projects/**": true,
+      "!**/cursor/projects/current-project/**": false
+    },
+    
+    // Extension development
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    
+    // Testing
+    "jest.autoRun": {
+      "watch": false,
+      "onSave": "test-file"
+    },
+    "jest.testExplorer.showInlineError": true,
+    
+    // Linting and formatting
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    
+    // Git integration
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "orta.vscode-jest",
+      "davidanson.vscode-markdownlint",
+      "cursor.cursor-linting-tools"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run Extension",
+        "type": "extensionHost",
+        "request": "launch",
+        "args": [
+          "--extensionDevelopmentPath=${workspaceFolder}"
+        ],
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js"
+        ],
+        "preLaunchTask": "npm: watch"
+      },
+      {
+        "name": "Extension Tests",
+        "type": "extensionHost",
+        "request": "launch",
+        "args": [
+          "--extensionDevelopmentPath=${workspaceFolder}",
+          "--extensionTestsPath=${workspaceFolder}/dist/test/suite/index"
+        ],
+        "outFiles": [
+          "${workspaceFolder}/dist/test/**/*.js"
+        ],
+        "preLaunchTask": "npm: test-compile"
+      }
+    ]
+  }
+} 

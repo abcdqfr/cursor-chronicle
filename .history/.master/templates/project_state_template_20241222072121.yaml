@@ -1,0 +1,57 @@
+project_metadata:
+  name: ""
+  version: "0.1.0"
+  status: "in_development"
+  last_updated: ""
+  repository: ""
+  license: ""
+
+migration_metrics:
+  completion_percentage: 0
+  active_tasks: []
+  blocked_tasks: []
+  completed_tasks: []
+
+technical_decisions:
+  - id: ""
+    description: ""
+    rationale: ""
+    impact: ""
+    timestamp: ""
+
+research_areas:
+  - name: ""
+    status: ""
+    priority: ""
+    key_findings: []
+
+dependencies:
+  external_libraries: []
+  internal_projects: []
+
+performance_metrics:
+  build_time: 0
+  test_coverage: 0
+  code_complexity: 0
+
+architectural_patterns:
+  - name: ""
+    description: ""
+    implementation_status: ""
+
+constraints:
+  - type: ""
+    description: ""
+    mitigation_strategy: ""
+
+evolution_tracking:
+  major_milestones: []
+  future_roadmap: []
+
+knowledge_graph:
+  linked_documents: []
+  related_research: []
+
+state_synchronization:
+  last_sync_timestamp: ""
+  sync_status: "" 

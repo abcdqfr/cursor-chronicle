@@ -1,0 +1,31 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            // Standard excludes
+            "**/.git": true,
+            "**/node_modules": true,
+            
+            // Keep reference projects visible but exclude their build artifacts
+            "Other Projects/code-historian/**/target/": true,
+            "Other Projects/code-historian/**/.settings": true,
+            "Other Projects/code-historian/**/.classpath": true,
+            "Other Projects/code-historian/**/.project": true
+        },
+        "search.exclude": {
+            "**/node_modules": true,
+            // Exclude build artifacts from search but keep source code searchable
+            "Other Projects/code-historian/**/target/": true
+        },
+        // Add Java-specific settings to handle the Eclipse extension references
+        "java.project.referencedLibraries": {
+            "include": [
+                "Other Projects/code-historian/extensions/eclipse/lib/**/*.jar"
+            ]
+        }
+    }
+} 

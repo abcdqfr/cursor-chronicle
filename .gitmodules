@@ -1,0 +1,3 @@
+[submodule "packages/cursor-chat-browser"]
+	path = packages/cursor-chat-browser
+	url = https://github.com/thomas-pedersen/cursor-chat-browser

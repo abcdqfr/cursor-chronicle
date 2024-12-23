@@ -1,0 +1,155 @@
+{
+  "folders": [
+	{
+		"name": "Cursor Chronicle",
+		"path": "."
+	},
+	{
+		"name": "Master Planning",
+		"path": "../../.master"
+	},
+	{
+		"name": "Documentation",
+		"path": "../../docs"
+	},
+	{
+		"name": "Reference: Code Historian",
+		"path": "../code-historian"
+	},
+	{
+		"name": "Other Projects",
+		"path": ".."
+	}
+],
+  "settings": {
+    // TypeScript settings
+    "typescript.tsdk": "/home/brandon/cursor/projects/cursor-chronicle/node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.tsc.autoDetect": "on",
+    
+    // Editor settings
+    "files.exclude": {
+      "**/.git": true,
+      "**/node_modules": true,
+      "**/.DS_Store": true,
+      "**/*.js.map": {"when": "$(basename).ts"},
+      "**/*.js": {"when": "$(basename).ts"}
+    },
+    
+    // Project-specific settings
+    "eslint.workingDirectories": [
+      {"directory": "/home/brandon/cursor/projects/cursor-chronicle"}
+    ],
+    
+    // Search settings
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.history": true,
+      "**/out": true
+    },
+
+    // Extension settings
+    "cSpell.allowCompoundWords": true,
+    "cSpell.ignorePaths": [
+      "projects/**",
+      "**/pom.xml",
+      "**/*.gradle",
+      "**/*.gradle.kts"
+    ],
+    "cSpell.words": [
+      "vmargs",
+      "Dsun",
+      "Xlog",
+      "esbenp",
+      "dbaeumer",
+      "eamodio"
+    ],
+    "cSpell.ignoreRegExpList": [
+      "JVM[a-zA-Z]+",
+      "-XX:[\\+\\-][a-zA-Z]+",
+      "-X[a-zA-Z:]+",
+      "-[D]sun\\.[a-zA-Z\\.]+",
+      "org\\.eclipse\\.[a-zA-Z\\.]+",
+      "[0-9]+\\.[0-9]+\\.[0-9]+"
+    ],
+
+    // Language-specific settings
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll.eslint": "explicit"
+      }
+    },
+    "[markdown]": {
+      "editor.wordWrap": "on",
+      "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+      }
+    },
+
+    // Essential Java settings that fixed our issue
+    "java.server.launchMode": "LightWeight",
+    "java.enabled": false,
+    "java.import.gradle.enabled": false,
+    "java.import.maven.enabled": false,
+    
+    // Essential file associations
+    "files.associations": {
+      "**/projects/code-historian/**/*.java": "plaintext",
+      "**/projects/code-historian/**/*.xml": "plaintext",
+      "**/projects/code-historian/**/*.gradle": "plaintext",
+      "**/projects/code-historian/**/*.gradle.kts": "plaintext",
+      "**/projects/code-historian/**/*.properties": "plaintext",
+      "**/projects/code-historian/**/*.jar": "binary",
+      "**/projects/cursor-extension/package.json": "plaintext",
+      "**/projects/local-history/package.json": "plaintext"
+    },
+    "markdown.extension.print.theme": "dark",
+    "markdown.extension.completion.enabled": true
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "streetsidesoftware.code-spell-checker",
+      "eamodio.gitlens",
+      "ms-vscode.vscode-typescript-next"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Extension",
+        "type": "extensionHost",
+        "request": "launch",
+        "args": [
+          "--extensionDevelopmentPath=/home/brandon/cursor/projects/cursor-chronicle"
+        ],
+        "outFiles": [
+          "/home/brandon/cursor/projects/cursor-chronicle/dist/**/*.js"
+        ],
+        "preLaunchTask": "npm: watch"
+      },
+      {
+        "name": "Extension Tests",
+        "type": "extensionHost",
+        "request": "launch",
+        "args": [
+          "--extensionDevelopmentPath=/home/brandon/cursor/projects/cursor-chronicle",
+          "--extensionTestsPath=/home/brandon/cursor/projects/cursor-chronicle/out/test/suite/index"
+        ],
+        "outFiles": [
+          "/home/brandon/cursor/projects/cursor-chronicle/out/test/**/*.js"
+        ],
+        "preLaunchTask": "npm: test-compile"
+      }
+    ]
+  }
+} 

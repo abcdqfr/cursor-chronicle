@@ -1,0 +1,42 @@
+{
+  "name": "cursor-chronicle",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bridge between cursor-chat-browser and local-history",
+  "scripts": {
+    "dev": "pnpm --filter bridge dev",
+    "build": "pnpm --filter bridge build",
+    "test": "pnpm --filter bridge test",
+    "lint:md": "markdownlint '**/*.md' --ignore node_modules",
+    "lint:md:fix": "markdownlint '**/*.md' --ignore node_modules --fix",
+    "lint": "npm run lint:md",
+    "lint:fix": "npm run lint:md:fix",
+    "validate:md": "node tools/validate-markdown.test.js",
+    "precommit": "npm run lint && npm run validate:md"
+  },
+  "keywords": [
+    "cursor",
+    "chat",
+    "history",
+    "bridge"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "markdownlint": "^0.32.1",
+    "markdownlint-cli": "^0.37.0",
+    "husky": "^8.0.3"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  }
+}

@@ -1,0 +1,131 @@
+version: 0.1.0
+last_updated: '2024-01-24'
+
+project:
+  name: cursor-chronicle
+  description: Integration of cursor-chat-browser and local-history
+  status: active
+  phase: planning
+
+upstream_dependencies:
+  cursor-chat-browser:
+    repository: https://github.com/thomas-pedersen/cursor-chat-browser
+    version: latest
+    last_sync: null
+  local-history:
+    repository: https://github.com/zabel-xyz/local-history
+    version: latest
+    last_sync: null
+
+technical_decisions:
+  TD001:
+    title: Repository Structure
+    date: '2024-01-24'
+    status: accepted
+    context: Need to organize integration of two upstream repositories
+    decision: |
+      Adopt monorepo structure with clean forks as submodules:
+      - packages/
+        - bridge/
+        - cursor-chat-browser/
+        - local-history/
+    rationale: |
+      - Enables clean upstream syncs
+      - Maintains separation of concerns
+      - Facilitates unified development workflow
+    consequences:
+      positive:
+        - Clear dependency management
+        - Isolated feature development
+        - Easy upstream updates
+      negative:
+        - More complex initial setup
+        - Larger repository size
+    alternatives_considered:
+      - Single repository fork
+      - Separate repositories with npm dependencies
+
+  TD002:
+    title: Integration Strategy
+    date: '2024-01-24'
+    status: proposed
+    context: Need to determine how to integrate local-history into cursor-chat-browser UI
+    decision: |
+      Use API-first approach with React Portal integration:
+      1. Create API layer for local-history
+      2. Inject UI components via React Portal
+      3. Maintain shared state management
+    rationale: |
+      - Minimizes changes to cursor-chat-browser
+      - Enables progressive enhancement
+      - Maintains clean separation
+    consequences:
+      positive:
+        - Flexible integration points
+        - Independent development
+        - Clear boundaries
+      negative:
+        - Some performance overhead
+        - More complex state management
+    alternatives_considered:
+      - Full UI replacement
+      - Iframe integration
+      - Shadow DOM approach
+
+documentation_standards:
+  version: 1.0.0
+  last_updated: '2024-01-24'
+  principles:
+    - Technical precision with concrete examples
+    - Multiple implementation approaches
+    - Clear rationale and tradeoffs
+    - Actionable steps and validation
+  
+  required_sections:
+    technical_docs:
+      - Overview with diagrams
+      - Implementation options
+      - Decision matrix
+      - Integration points
+      - Validation steps
+    
+    architecture_decisions:
+      - Context
+      - Decision
+      - Rationale
+      - Consequences
+      - Alternatives
+    
+    integration_guides:
+      - Prerequisites
+      - Step-by-step instructions
+      - Configuration examples
+      - Validation steps
+      - Troubleshooting
+
+research_structure:
+  base_path: .master/research
+  categories:
+    architecture:
+      path: architecture/
+      description: System design and patterns
+    integration:
+      path: integration/
+      description: Integration approaches and patterns
+    performance:
+      path: performance/
+      description: Performance analysis and optimization
+    security:
+      path: security/
+      description: Security considerations and measures
+
+state_management:
+  state_files:
+    - .master/state/current/project_state.yaml
+    - project_state.yaml  # Root level symlink
+  sync_frequency: on_change
+  validation_rules:
+    - All technical decisions must have rationale
+    - All documentation must follow standards
+    - Research must be properly categorized
+    - State files must be in sync 
